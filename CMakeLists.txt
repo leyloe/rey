@@ -1,6 +1,12 @@
 cmake_minimum_required(VERSION 3.30)
-set(CMAKE_CXX_STANDARD 23)
 project(App)
+
+set_target_properties(${PROJECT_NAME} PROPERTIES
+    CXX_STANDARD 23
+    CXX_STANDARD_REQUIRED ON
+    CXX_EXTENSIONS OFF
+    COMPILE_WARNING_AS_ERROR ON
+)
 
 set(SOURCE_DIR Source)
 set(INCLUDE_DIR Include)
