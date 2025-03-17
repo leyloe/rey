@@ -12,9 +12,9 @@ set(SOURCES
     ${SOURCE_DIR}/Main.cpp
 )
 
-target_include_directories(${PROJECT_NAME} PRIVATE ${INCLUDES})
-
 add_executable(${PROJECT_NAME} ${SOURCES})
+
+target_include_directories(${PROJECT_NAME} PRIVATE ${INCLUDES})
 
 ## Fetch ##
 
