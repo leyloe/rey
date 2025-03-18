@@ -1,14 +1,15 @@
 #include "Window.hpp"
 
-const int screenWidth = 800;
-const int screenHeight = 450;
+#define SCREEN_WIDTH 800
+#define SCREEN_HEIGHT 450
+#define WINDOW_TITLE "App"
 
 int main(void)
 {
-    gcs::Window window{screenWidth, screenHeight, "App"};
+    gcs::Window window{SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE};
 
-    Vector2 ballPos = {(float)screenWidth / 2, (float)screenHeight / 2};
-    Vector2 sqaurePos = {(float)screenWidth / 2, (float)screenHeight / 2};
+    Vector2 ballPos = {(float)SCREEN_WIDTH / 2, (float)SCREEN_HEIGHT / 2};
+    Vector2 sqaurePos = {(float)SCREEN_WIDTH / 2, (float)SCREEN_HEIGHT / 2};
 
     SetTargetFPS(60);
 
