@@ -6,7 +6,7 @@
 
 int main(void)
 {
-    gcs::Window window{SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE};
+    gcs::Window window = {SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE};
 
     Vector2 ballPos = {(float)SCREEN_WIDTH / 2, (float)SCREEN_HEIGHT / 2};
     Vector2 sqaurePos = {(float)SCREEN_WIDTH / 2, (float)SCREEN_HEIGHT / 2};
