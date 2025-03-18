@@ -1,18 +1,18 @@
-#include "raylib.h"
+#include "Window.hpp"
 
 const int screenWidth = 800;
 const int screenHeight = 450;
 
 int main(void)
 {
-    InitWindow(800, 450, "some dude");
+    gcs::Window window{screenWidth, screenHeight, "App"};
 
     Vector2 ballPos = {(float)screenWidth / 2, (float)screenHeight / 2};
     Vector2 sqaurePos = {(float)screenWidth / 2, (float)screenHeight / 2};
 
     SetTargetFPS(60);
 
-    while (!WindowShouldClose())
+    while (!window.shouldClose())
     {
 
         if (IsKeyDown(KEY_RIGHT))
@@ -36,8 +36,6 @@ int main(void)
 
         EndDrawing();
     }
-
-    CloseWindow();
 
     return 0;
 }

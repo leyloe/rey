@@ -16,6 +16,7 @@ set(INCLUDES ${SOURCE_DIR} ${INCLUDE_DIR})
 
 set(SOURCES
     ${SOURCE_DIR}/Main.cpp
+    ${SOURCE_DIR}/Window.cpp
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES})
