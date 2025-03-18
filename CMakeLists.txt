@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.30)
-project(App)
+project(app)
 
 set(SOURCE_DIR Source)
 set(INCLUDE_DIR Include)
