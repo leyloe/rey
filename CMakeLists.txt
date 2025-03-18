@@ -1,13 +1,6 @@
 cmake_minimum_required(VERSION 3.30)
 project(App)
 
-set_target_properties(${PROJECT_NAME} PROPERTIES
-    CXX_STANDARD 23
-    CXX_STANDARD_REQUIRED ON
-    CXX_EXTENSIONS OFF
-    COMPILE_WARNING_AS_ERROR ON
-)
-
 set(SOURCE_DIR Source)
 set(INCLUDE_DIR Include)
 set(THIRD_PARTY_SOURCE_DIR ThirdParty)
@@ -22,6 +15,15 @@ set(SOURCES
 add_executable(${PROJECT_NAME} ${SOURCES})
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${INCLUDES})
+
+## Properties ##
+
+set_target_properties(${PROJECT_NAME} PROPERTIES
+    CXX_STANDARD 23
+    CXX_STANDARD_REQUIRED ON
+    CXX_EXTENSIONS OFF
+    COMPILE_WARNING_AS_ERROR ON
+)
 
 ## Fetch ##
 
@@ -39,3 +41,4 @@ FetchContent_MakeAvailable(raylib)
 ## Libs ##
 
 target_link_libraries(${PROJECT_NAME} PRIVATE raylib)
+
