@@ -7,7 +7,7 @@
 #define CENTER_X (SCREEN_WIDTH / 2)
 #define CENTER_Y (SCREEN_HEIGHT / 2)
 
-int main(void)
+int main()
 {
     raylib::Window window(SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE);
     raylib::Vector2 ballPosition(CENTER_X, CENTER_Y);
