@@ -4,25 +4,24 @@
 #define SCREEN_HEIGHT 800
 #define WINDOW_TITLE "Pong"
 
+#define CENTER_X (SCREEN_WIDTH / 2)
+#define CENTER_Y (SCREEN_HEIGHT / 2)
+
 int main(void)
 {
     raylib::Window window(SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE);
-    raylib::Color textColor = raylib::Color::LightGray();
+    raylib::Vector2 ballPosition(CENTER_X, CENTER_Y);
+    raylib::Vector2 rectanglePosition(0, 0);
 
-    SetTargetFPS(60);
+    window.SetTargetFPS(60);
 
     while (!window.ShouldClose())
     {
-        /* stuff that runs before drawing i guess */
-
         while (window.Drawing())
         {
-            /* drawing scope */
-            window.ClearBackground(RAYWHITE);
-            textColor.DrawText("Congrats! You created your first window!", 190, 200, 20);
-        } /* EndDrawing() */
-
-        /* maybe do stuff when you're done drawing? */
+            ballPosition.DrawCircle(40, raylib::Color::White());
+            rectanglePosition.DrawRectangle({25, 120}, raylib::Color::White());
+        }
     }
 
     return 0;
