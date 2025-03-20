@@ -25,15 +25,17 @@ public:
     }
 };
 
+raylib::Window window(SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE);
 raylib::Vector2 ballPosition{CENTER_X, CENTER_Y};
 raylib::Vector2 rectanglePosition{10, CENTER_Y - (120 / 2)};
 raylib::Vector2 rectangle2Position{SCREEN_WIDTH - (25 + 10), CENTER_Y - 60};
 raylib::Vector2 linePosition{CENTER_X, 0};
-
 Ball ball;
 
 void Setup()
 {
+    window.SetTargetFPS(60);
+
     ball.radius = 20;
     ball.position.x = CENTER_X;
     ball.position.y = CENTER_Y;
@@ -41,13 +43,14 @@ void Setup()
     ball.speed.y = 7;
 }
 
-void Updater()
+void Update()
 {
     ball.Update();
 }
 
 void Render()
 {
+    window.ClearBackground(raylib::Color::Black());
     linePosition.DrawLine({CENTER_X, SCREEN_HEIGHT}, raylib::Color::White());
     ball.Draw();
     rectanglePosition.DrawRectangle({25, 120}, raylib::Color::White());
@@ -56,14 +59,11 @@ void Render()
 
 int main()
 {
-    raylib::Window window(SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE);
-    window.SetTargetFPS(60);
-
     Setup();
 
     while (!window.ShouldClose())
     {
-        Updater();
+        Update();
 
         while (window.Drawing())
             Render();
