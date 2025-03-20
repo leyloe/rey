@@ -1,41 +1,28 @@
-#include "Window.hpp"
+#include <raylib-cpp.hpp>
 
-#define SCREEN_WIDTH 800
-#define SCREEN_HEIGHT 450
-#define WINDOW_TITLE "App"
+#define SCREEN_WIDTH 1280
+#define SCREEN_HEIGHT 800
+#define WINDOW_TITLE "Pong"
 
 int main(void)
 {
-    gcs::Window window = {SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE};
-
-    Vector2 ballPos = {(float)SCREEN_WIDTH / 2, (float)SCREEN_HEIGHT / 2};
-    Vector2 sqaurePos = {(float)SCREEN_WIDTH / 2, (float)SCREEN_HEIGHT / 2};
+    raylib::Window window(SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE);
+    raylib::Color textColor = raylib::Color::LightGray();
 
     SetTargetFPS(60);
 
-    while (!window.shouldClose())
+    while (!window.ShouldClose())
     {
+        /* stuff that runs before drawing i guess */
 
-        if (IsKeyDown(KEY_RIGHT))
-            ballPos.x += 2.0f;
-        if (IsKeyDown(KEY_LEFT))
-            ballPos.x -= 2.0f;
-        if (IsKeyDown(KEY_UP))
-            ballPos.y -= 2.0f;
-        if (IsKeyDown(KEY_DOWN))
-            ballPos.y += 2.0f;
+        while (window.Drawing())
+        {
+            /* drawing scope */
+            window.ClearBackground(RAYWHITE);
+            textColor.DrawText("Congrats! You created your first window!", 190, 200, 20);
+        } /* EndDrawing() */
 
-        sqaurePos = GetMousePosition();
-
-        BeginDrawing();
-
-        ClearBackground(RAYWHITE);
-
-        DrawCircleV(ballPos, 50, MAROON);
-
-        DrawRectangleV(sqaurePos, {30, 30}, RED);
-
-        EndDrawing();
+        /* maybe do stuff when you're done drawing? */
     }
 
     return 0;

@@ -9,7 +9,6 @@ set(INCLUDES ${SOURCE_DIR} ${INCLUDE_DIR})
 
 set(SOURCES
     ${SOURCE_DIR}/Main.cpp
-    ${SOURCE_DIR}/Window.cpp
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES})
@@ -21,7 +20,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE ${INCLUDES})
 set_target_properties(${PROJECT_NAME} PROPERTIES
     CXX_STANDARD 23
     CXX_STANDARD_REQUIRED ON
-    CXX_EXTENSIONS OFF
+    CXX_EXTENSIONS ON
     COMPILE_WARNING_AS_ERROR ON
 )
 
@@ -30,15 +29,28 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 include(FetchContent)
 
 set(RAYLIB_VERSION 5.5)
+set(RAYLIB_CPP_VERSION drawing)
+set(DAWN_VERSION main)
 
 FetchContent_Declare(
     raylib
     URL https://github.com/raysan5/raylib/archive/refs/tags/${RAYLIB_VERSION}.tar.gz
 )
 
-FetchContent_MakeAvailable(raylib)
+FetchContent_Declare(
+    raylib_cpp
+    URL https://github.com/RobLoach/raylib-cpp/archive/refs/heads/${RAYLIB_CPP_VERSION}.zip
+)
+
+FetchContent_MakeAvailable(
+    raylib 
+    raylib_cpp
+)
 
 ## Libs ##
 
-target_link_libraries(${PROJECT_NAME} PRIVATE raylib)
+target_link_libraries(${PROJECT_NAME} PRIVATE 
+    raylib
+    raylib_cpp
+)
 
