@@ -30,7 +30,6 @@ include(FetchContent)
 
 set(RAYLIB_VERSION 5.5)
 set(RAYLIB_CPP_VERSION drawing)
-set(DAWN_VERSION main)
 
 FetchContent_Declare(
     raylib
