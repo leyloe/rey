@@ -33,10 +33,10 @@ private:
     float m_Radius;
 };
 
-raylib::Window window(SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE);
-raylib::Vector2 center{SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2};
+static raylib::Window window(SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE);
+static raylib::Vector2 center{SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2};
 
-Ball ball{center, 20, 7};
+static Ball ball{center, 20, 7};
 
 void Setup()
 {
