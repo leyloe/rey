@@ -36,9 +36,6 @@ private:
 raylib::Window window(SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE);
 
 raylib::Vector2 center{SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2};
-raylib::Vector2 ballPosition{center.x, center.y};
-raylib::Vector2 rectanglePosition{10, center.y - (120 / 2)};
-raylib::Vector2 rectangle2Position{SCREEN_WIDTH - (25 + 10), center.y - 60};
 raylib::Vector2 linePosition{center.x, 0};
 
 Ball ball{center, 20, 7};
@@ -56,10 +53,8 @@ void Update()
 void Render()
 {
     window.ClearBackground(raylib::Color::Black());
-    linePosition.DrawLine({center.x, SCREEN_HEIGHT}, raylib::Color::White());
+    DrawLine(center.x, 0, center.x, SCREEN_HEIGHT, raylib::Color::White());
     ball.Draw();
-    rectanglePosition.DrawRectangle({25, 120}, raylib::Color::White());
-    rectangle2Position.DrawRectangle({25, 120}, raylib::Color::White());
 }
 
 int main()
