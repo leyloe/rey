@@ -4,6 +4,9 @@
 #define SCREEN_HEIGHT 800
 #define WINDOW_TITLE "Pong"
 
+#define PLAYER_WIDTH 25
+#define PLAYER_HEIGHT 120
+
 class Ball
 {
 public:
@@ -33,9 +36,33 @@ private:
     float m_Radius;
 };
 
+class Paddle
+{
+public:
+    Paddle(raylib::Vector2 position, raylib::Vector2 size, float speed) : m_Position{position}, m_Size{size}, m_Speed{speed, speed}
+    {
+    }
+
+    void Draw()
+    {
+        m_Position.DrawRectangle(m_Size, raylib::Color::White());
+    }
+
+    void Update()
+    {
+    }
+
+private:
+    raylib::Vector2 m_Position;
+    raylib::Vector2 m_Size;
+    raylib::Vector2 m_Speed;
+};
+
 const raylib::Vector2 center{SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2};
 raylib::Window window(SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE);
+
 Ball ball{center, 20, 7};
+Paddle player{{SCREEN_WIDTH - PLAYER_WIDTH - 10, center.y - PLAYER_HEIGHT / 2}, {PLAYER_WIDTH, PLAYER_HEIGHT}, 6};
 
 void Setup()
 {
@@ -52,6 +79,7 @@ void Render()
     window.ClearBackground(raylib::Color::Black());
     DrawLine(center.x, 0, center.x, SCREEN_HEIGHT, raylib::Color::White());
     ball.Draw();
+    player.Draw();
 }
 
 int main()
