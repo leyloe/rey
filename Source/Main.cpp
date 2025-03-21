@@ -39,7 +39,7 @@ private:
 class Paddle
 {
 public:
-    Paddle(raylib::Vector2 position, raylib::Vector2 size, float speed) : m_Position{position}, m_Size{size}, m_Speed{speed, speed}
+    Paddle(raylib::Vector2 position, raylib::Vector2 size, float speed) : m_Position{position}, m_Size{size}, m_Speed{speed}
     {
     }
 
@@ -50,12 +50,17 @@ public:
 
     void Update()
     {
+        if (raylib::Keyboard::IsKeyDown(KEY_UP))
+            m_Position.y -= m_Speed;
+
+        if (raylib::Keyboard::IsKeyDown(KEY_DOWN))
+            m_Position.y += m_Speed;
     }
 
 private:
     raylib::Vector2 m_Position;
     raylib::Vector2 m_Size;
-    raylib::Vector2 m_Speed;
+    float m_Speed;
 };
 
 const raylib::Vector2 center{SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2};
@@ -72,6 +77,7 @@ void Setup()
 void Update()
 {
     ball.Update();
+    player.Update();
 }
 
 void Render()
