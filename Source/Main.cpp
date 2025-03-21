@@ -69,11 +69,20 @@ private:
     float m_Speed;
 };
 
+class CpuPaddle : public Paddle
+{
+public:
+    CpuPaddle(raylib::Vector2 position, raylib::Vector2 size, float speed) : Paddle(position, size, speed)
+    {
+    }
+};
+
 const raylib::Vector2 center{SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2};
 raylib::Window window(SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE);
 
 Ball ball{center, 20, 7};
 Paddle player{{SCREEN_WIDTH - PLAYER_WIDTH - 10, center.y - PLAYER_HEIGHT / 2}, {PLAYER_WIDTH, PLAYER_HEIGHT}, 6};
+CpuPaddle cpu{{SCREEN_WIDTH - PLAYER_WIDTH - 10, center.y - PLAYER_HEIGHT / 2}, {PLAYER_WIDTH, PLAYER_HEIGHT}, 6};
 
 void Setup()
 {
