@@ -55,6 +55,12 @@ public:
 
         if (raylib::Keyboard::IsKeyDown(KEY_DOWN))
             m_Position.y += m_Speed;
+
+        if (m_Position.y <= 0)
+            m_Position.y = 0;
+
+        if (m_Position.y + m_Size.y >= SCREEN_HEIGHT)
+            m_Position.y = SCREEN_HEIGHT - m_Size.y;
     }
 
 private:
