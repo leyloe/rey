@@ -34,9 +34,7 @@ private:
 };
 
 raylib::Window window(SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE);
-
 raylib::Vector2 center{SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2};
-raylib::Vector2 linePosition{center.x, 0};
 
 Ball ball{center, 20, 7};
 
