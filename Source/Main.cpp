@@ -35,7 +35,6 @@ private:
 
 static raylib::Window window(SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE);
 static raylib::Vector2 center{SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2};
-
 static Ball ball{center, 20, 7};
 
 void Setup()
